@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <title>Vehículo Autónomo</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="js/utilities.js"></script>
+
+</head>
+
+
+<body>
+  <div>
+    <button onclick="toggleMode()">Modo</button>
+    <MODO_MANUAL id="man">Manual </MODO_MANUAL>
+    <MODO_ALEATORIO id="random">Aleatorio</MODO_ALEATORIO>
+  </div>
+
+  <H1>Simulación Vehículo Autónomo con Obstáculos</H1>
+  <H2>Filas: Columnas: </H2>
+  <input type="text" id="ask_rows" value="5" size="5">
+  <input type="text" id="ask_columns" value="5" size="5">
+  <H2>Obstáculos:</H2>
+  <input type="text" id="ask_obstacles" value="5" size="5">
+
+  <table id=grid>
+  </table>
+  <BUTTON onclick="generateGrid();">GENERAR</BUTTON>
+
+</body>
+
+<script type="text/javascript" src="js/script.js"></script>
+
+</html>
