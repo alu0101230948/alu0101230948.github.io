@@ -67,24 +67,9 @@ function RandomObstacles(M, N) {
 }
 
 // Dependiendo del estado de la tabla, efectúa una acción u otra
-// Tabla vacía: permite posicionar un coche
-// Tabla con coche: permite introducir la posición final
 function clickCell(cell) {
-  // TODO que se haga con un botón
-  // Si la tabla está vacía, el usuario coloca un coche
-  if (Board == "empty") {
-    cell.setAttribute("data-car", "true");
-    cell.innerHTML = "<img src=\"img/car.png\" width=\"65px\" height=\"42px\">";
-    Board = "with_car";
-
-  } else if (Board == "with_car") {
-    cell.setAttribute("data-end", "true");
-    // cell.innerHTML = "F";
-    Board = "with_end";
-    cell.className = "goal";
-
-    // Comprueba si la celda clicada es un obstáculo
-  } else if (cell.getAttribute("data-obstacle") == "true") {
+  // Comprueba si la celda clicada es un obstáculo
+  if (cell.getAttribute("data-obstacle") == "true") {
     alert("Obstáculo");
 
     // Comprueba si la celda clicada es un coche
@@ -95,7 +80,20 @@ function clickCell(cell) {
   } else if (cell.getAttribute("data-end") == "true") {
     alert("Meta");
 
-    // TODO que no se puedan poner obstaculos sobre coche y meta
+    // TODO que se haga con un botón
+    // Si la tabla está vacía, el usuario coloca un coche
+  } else if (Board == "empty") {
+    cell.setAttribute("data-car", "true");
+    cell.innerHTML = "<img src=\"img/car.png\" width=\"65px\" height=\"42px\">";
+    Board = "with_car";
+
+    // Si la tabla contiene un coche, se coloca la meta
+  } else if (Board == "with_car") {
+    cell.setAttribute("data-end", "true");
+    Board = "with_end";
+    cell.className = "goal";
+
+    // Si el usuario activó el modo manual, se permite poner obstáculos
   } else if (isManual == true) {
     cell.setAttribute("data-obstacle", "true");
     cell.innerHTML = "<img src=\"img/rock.png\" width=\"65px\" height=\"42px\">";
