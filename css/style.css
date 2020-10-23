@@ -7,17 +7,17 @@ BODY {
 
 MODO_MANUAL {
   display: none;
-  font-size: 35px;
+  font-size: 25px;
 }
 
 MODO_ALEATORIO {
   display: inline;
-  font-size: 35px;
+  font-size: 25px;
 }
 
 H1 {
   text-align: center;
-  font-size: 40pt;
+  font-size: 30pt;
   font-weight: normal;
 }
 #grid {
@@ -31,7 +31,7 @@ H1 {
   width: 70px;
   height: 70px;
   text-align: center;
-  font-size: 40px;
+  font-size: 25px;
 }
 
 #grid TR TD.clicked {
@@ -44,9 +44,9 @@ H1 {
 
 BUTTON {
   margin: 12px;
-  width: 200px;
-  height: 100px;
-  font-size: 35px;
+  width: 170px;
+  height: 70px;
+  font-size: 25px;
 }
 
 input {
