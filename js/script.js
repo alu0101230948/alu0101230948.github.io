@@ -70,9 +70,12 @@ function RandomObstacles(M, N) {
 function clickCell(cell) {
   // Comprueba si la celda clicada es un obstáculo
   if (cell.getAttribute("data-obstacle") == "true") {
-    cell.setAttribute("data-obstacle", "false");
-    cell.innerHTML = "";
-    // alert("Obstáculo");
+    if (isManual == true) {
+      cell.setAttribute("data-obstacle", "false");
+      cell.innerHTML = "";
+    } else {
+      alert("Obstáculo");
+    }
 
     // Comprueba si la celda clicada es un coche
   } else if (cell.getAttribute("data-car") == "true") {
