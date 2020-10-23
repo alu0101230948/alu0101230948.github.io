@@ -45,11 +45,12 @@ function generateGrid() {
     }
   }
 
-  if (document.getElementById("random").style.display === "inline")
+  if (document.getElementById("random").style.display === "inline") {
+    isManual = false;
     RandomObstacles(n_rows, n_columns);
-  else
+  } else {
     isManual = true;
-
+  }
 }
 
 // Añade obstáculos de manera aleatoria
@@ -69,8 +70,6 @@ function RandomObstacles(M, N) {
 // Tabla vacía: permite posicionar un coche
 // Tabla con coche: permite introducir la posición final
 function clickCell(cell) {
-  console.log(Board);
-  console.log(isManual);
   // TODO que se haga con un botón
   // Si la tabla está vacía, el usuario coloca un coche
   if (Board == "empty") {
@@ -84,14 +83,22 @@ function clickCell(cell) {
     Board = "with_end";
     cell.className = "goal";
 
+    // Comprueba si la celda clicada es un obstáculo
+  } else if (cell.getAttribute("data-obstacle") == "true") {
+    alert("Obstáculo");
+
+    // Comprueba si la celda clicada es un coche
+  } else if (cell.getAttribute("data-car") == "true") {
+    alert("Coche");
+
+    // Comprueba si la celda clicada es la meta
+  } else if (cell.getAttribute("data-end") == "true") {
+    alert("Meta");
+
     // TODO que no se puedan poner obstaculos sobre coche y meta
   } else if (isManual == true) {
     cell.setAttribute("data-obstacle", "true");
     cell.innerHTML = "<img src=\"img/rock.png\" width=\"65px\" height=\"42px\">";
-
-    // Comprueba si la celda clicada es un obstáculo
-  } else if (cell.getAttribute("data-obstacle") == "true") {
-    alert("Obstáculo");
 
   } else {
     cell.className = "clicked";
