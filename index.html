@@ -11,7 +11,6 @@
 
 </head>
 
-
 <body>
   <div>
     <button onclick="toggleMode()">Modo</button>
@@ -23,8 +22,13 @@
   <H2>Filas: Columnas: </H2>
   <input type="text" id="ask_rows" value="3" size="5">
   <input type="text" id="ask_columns" value="3" size="5">
-  <H2>Obstáculos:</H2>
-  <input type="text" id="ask_obstacles" value="4" size="5">
+
+  <OBS_TEXT id="obs_t">
+    <H2>Obstáculos:</H2>
+    <input type="text" id="ask_obstacles" value="4" size="5">
+  </OBS_TEXT>
+
+  <br></br>
 
   <table id=grid>
   </table>

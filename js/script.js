@@ -54,12 +54,12 @@ function generateGrid() {
 }
 
 // Añade obstáculos de manera aleatoria
+// TODO que aparezcan las rocas que deberian
 function RandomObstacles(M, N) {
   n_obs = document.getElementById("ask_obstacles").value;
   for (let i = 0; i < n_obs; i++) {
     let row = Math.floor(Math.random() * M);
     let col = Math.floor(Math.random() * N);
-    // console.log(row + " " + col);
     let cell = grid.rows[row].cells[col];
     cell.setAttribute("data-obstacle", "true");
     cell.innerHTML = "<img src=\"img/rock.png\" width=\"65px\" height=\"42px\">";

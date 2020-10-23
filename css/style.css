@@ -20,6 +20,11 @@ H1 {
   font-size: 25pt;
   font-weight: normal;
 }
+
+OBS_TEXT {
+  display: inline;
+}
+
 #grid {
   margin-left: auto;
   margin-right: auto;
