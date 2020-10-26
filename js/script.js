@@ -66,6 +66,11 @@ function RandomObstacles(M, N) {
   }
 }
 
+// Funcion que aplicará una técnica de búsqueda para encontrar la meta
+function startSearch() {
+  alert("EN PROGRESO");
+}
+
 // Dependiendo del estado de la tabla, efectúa una acción u otra
 function clickCell(cell) {
   // Comprueba si la celda clicada es un obstáculo
