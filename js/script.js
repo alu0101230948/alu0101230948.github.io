@@ -109,39 +109,39 @@ function clickCell(cell) {
     cell.innerHTML = "<img src=\"img/rock.png\" width=\"65px\" height=\"42px\">";
 
   } else {
-    cell.className = "clicked";
+    // cell.className = "clicked";
     //Count and display the number of adjacent obstacles
     let obstacleCount = 0;
-    let cellRow = cell.parentNode.rowIndex;
-    let cellCol = cell.cellIndex;
-    let row_size = grid.rows.length;
-    let column_size = grid.rows[0].cells.length
-    // alert(cellRow + " " + cellCol);  
+    // let cellRow = cell.parentNode.rowIndex;
+    // let cellCol = cell.cellIndex;
+    // let row_size = grid.rows.length;
+    // let column_size = grid.rows[0].cells.length
+    // // alert(cellRow + " " + cellCol);  
 
-    // Norte
-    if (cellRow != 0)
-      if (grid.rows[cellRow - 1].cells[cellCol].getAttribute("data-obstacle") == "true")
-        obstacleCount++;
-    // Sur
-    if (cellRow != row_size - 1)
-      if (grid.rows[cellRow + 1].cells[cellCol].getAttribute("data-obstacle") == "true")
-        obstacleCount++;
-    // Oeste
-    if (cellCol != 0)
-      if (grid.rows[cellRow].cells[cellCol - 1].getAttribute("data-obstacle") == "true")
-        obstacleCount++;
-    // Este
-    if (cellCol != column_size - 1)
-      if (grid.rows[cellRow].cells[cellCol + 1].getAttribute("data-obstacle") == "true")
-        obstacleCount++;
+    // // Norte
+    // if (cellRow != 0)
+    //   if (grid.rows[cellRow - 1].cells[cellCol].getAttribute("data-obstacle") == "true")
+    //     obstacleCount++;
+    // // Sur
+    // if (cellRow != row_size - 1)
+    //   if (grid.rows[cellRow + 1].cells[cellCol].getAttribute("data-obstacle") == "true")
+    //     obstacleCount++;
+    // // Oeste
+    // if (cellCol != 0)
+    //   if (grid.rows[cellRow].cells[cellCol - 1].getAttribute("data-obstacle") == "true")
+    //     obstacleCount++;
+    // // Este
+    // if (cellCol != column_size - 1)
+    //   if (grid.rows[cellRow].cells[cellCol + 1].getAttribute("data-obstacle") == "true")
+    //     obstacleCount++;
 
-    // CONTANDO CON DIAGONALES
-    // for (let i = Math.max(cellRow - 1, 0); i <= Math.min(cellRow + 1, 9); i++) {
-    //   for (let j = Math.max(cellCol - 1, 0); j <= Math.min(cellCol + 1, 9); j++) {
-    //     if (grid.rows[i].cells[j].getAttribute("data-obstacle") == "true") obstacleCount++;
-    //   }
-    // }
+    // // CONTANDO CON DIAGONALES
+    // // for (let i = Math.max(cellRow - 1, 0); i <= Math.min(cellRow + 1, 9); i++) {
+    // //   for (let j = Math.max(cellCol - 1, 0); j <= Math.min(cellCol + 1, 9); j++) {
+    // //     if (grid.rows[i].cells[j].getAttribute("data-obstacle") == "true") obstacleCount++;
+    // //   }
+    // // }
 
-    cell.innerHTML = obstacleCount;
+    // cell.innerHTML = obstacleCount;
   }
 }
