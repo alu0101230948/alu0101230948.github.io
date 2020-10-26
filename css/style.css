@@ -21,6 +21,10 @@ H1 {
   font-weight: normal;
 }
 
+H2 {
+  display: inline;
+}
+
 OBS_TEXT {
   display: inline;
 }
@@ -48,15 +52,15 @@ OBS_TEXT {
 }
 
 BUTTON {
-  margin: 12px;
+  margin: 25px;
   width: 170px;
   height: 70px;
   font-size: 25px;
 }
 
 input {
-  margin: 12px;
+  margin: 15px;
   text-align: center;
-  width: 100px;
+  width: 25px;
   height: 25px;
 }
