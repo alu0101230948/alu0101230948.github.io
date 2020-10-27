@@ -54,15 +54,18 @@ function generateGrid() {
 }
 
 // Añade obstáculos de manera aleatoria
-// TODO que aparezcan las rocas que deberian
 function RandomObstacles(M, N) {
   n_obs = document.getElementById("ask_obstacles").value;
   for (let i = 0; i < n_obs; i++) {
     let row = Math.floor(Math.random() * M);
     let col = Math.floor(Math.random() * N);
     let cell = grid.rows[row].cells[col];
-    cell.setAttribute("data-obstacle", "true");
-    cell.innerHTML = "<img src=\"img/rock.png\" width=\"65px\" height=\"42px\">";
+    if (cell.getAttribute("data-obstacle") == "true") {
+      i--;
+    } else {
+      cell.setAttribute("data-obstacle", "true");
+      cell.innerHTML = "<img src=\"img/rock.png\" width=\"65px\" height=\"42px\">";
+    }
   }
 }
 
@@ -90,7 +93,6 @@ function clickCell(cell) {
   } else if (cell.getAttribute("data-end") == "true") {
     alert("Meta");
 
-    // TODO que se haga con un botón
     // Si la tabla está vacía, el usuario coloca un coche
   } else if (Board == "empty") {
     cell.setAttribute("data-car", "true");
