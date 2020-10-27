@@ -56,16 +56,20 @@ function generateGrid() {
 // Añade obstáculos de manera aleatoria
 function RandomObstacles(M, N) {
   n_obs = document.getElementById("ask_obstacles").value;
-  for (let i = 0; i < n_obs; i++) {
-    let row = Math.floor(Math.random() * M);
-    let col = Math.floor(Math.random() * N);
-    let cell = grid.rows[row].cells[col];
-    if (cell.getAttribute("data-obstacle") == "true") {
-      i--;
-    } else {
-      cell.setAttribute("data-obstacle", "true");
-      cell.innerHTML = "<img src=\"img/rock.png\" width=\"65px\" height=\"42px\">";
+  if ((n_obs >= 0) && (n_obs < (Number(M) * Number(N) - 1))) {
+    for (let i = 0; i < n_obs; i++) {
+      let row = Math.floor(Math.random() * M);
+      let col = Math.floor(Math.random() * N);
+      let cell = grid.rows[row].cells[col];
+      if (cell.getAttribute("data-obstacle") == "true") {
+        i--;
+      } else {
+        cell.setAttribute("data-obstacle", "true");
+        cell.innerHTML = "<img src=\"img/rock.png\" width=\"65px\" height=\"42px\">";
+      }
     }
+  } else {
+    alert("El número de obstáculos debe estar entre 0 y " + (Number(M) * Number(N) - 2));
   }
 }
 
