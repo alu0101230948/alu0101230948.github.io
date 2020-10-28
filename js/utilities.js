@@ -20,3 +20,5 @@ function showHelp() {
   alert("En el modo aleatorio, al hacer un primer click en cualquier casilla, se coloca el coche. El segundo click coloca la meta, y al darle al botón de EMPEZAR se mostrará el camino del coche a la meta.");
   alert("En el modo manual, se hace lo mismo pero tras colocar la meta, se pueden ir colocando los obstáculos en la casilla que se desee.");
 }
+
+// TODO añadir modo claro

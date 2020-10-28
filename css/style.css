@@ -1,8 +1,26 @@
 BODY {
-  background: black;
-  color: #DDDDDD;
   font-family: courier new;
   text-align: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  BODY {
+    background: black;
+    color: #DDDDDD;
+  }
+  #grid TR TD{
+    border:1px solid white;
+  }  
+}
+
+@media (prefers-color-scheme: light) {
+  BODY {
+    background: white;
+    color: black;
+  }  
+  #grid TR TD{
+    border:1px solid black;
+  }
 }
 
 MODO_MANUAL {
@@ -35,7 +53,6 @@ OBS_TEXT {
 }
 
 #grid TR TD{
-  border:1px solid white;
   background: #3f6e8c;
   width: 70px;
   height: 70px;

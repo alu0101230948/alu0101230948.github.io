@@ -73,7 +73,7 @@ function RandomObstacles(M, N) {
   }
 }
 
-// Funcion que aplicará una técnica de búsqueda para encontrar la meta
+// Funcion que aplica una técnica de búsqueda para encontrar la meta
 function startSearch() {
   alert("EN PROGRESO");
 }
