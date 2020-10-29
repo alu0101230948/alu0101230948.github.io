@@ -3,6 +3,10 @@ let grid = document.getElementById("grid");
 
 let Board = "empty";
 let isManual = Boolean(false);
+
+let vehicle;
+let endpoint;
+
 document.getElementById("random").style.display = "inline";
 document.getElementById("man").style.display = "none";
 
@@ -75,7 +79,15 @@ function RandomObstacles(M, N) {
 
 // Funcion que aplica una técnica de búsqueda para encontrar la meta
 function startSearch() {
-  alert("EN PROGRESO");
+  if (Board == "empty") {
+    alert("¡Coloca el coche!");
+  } else if (Board == "with_car") {
+    alert("¡Coloca la meta!"); 
+  } else {
+  let vehicle_pos = [vehicle.parentNode.rowIndex, vehicle.cellIndex];
+  let endpoint_pos = [endpoint.parentNode.rowIndex, endpoint.cellIndex];
+  Search1(vehicle_pos, endpoint_pos);
+  }
 }
 
 // Dependiendo del estado de la tabla, efectúa una acción u otra
@@ -102,12 +114,14 @@ function clickCell(cell) {
     cell.setAttribute("data-car", "true");
     cell.innerHTML = "<img src=\"img/car.png\" width=\"65px\" height=\"42px\">";
     Board = "with_car";
+    vehicle = cell;
 
     // Si la tabla contiene un coche, se coloca la meta
   } else if (Board == "with_car") {
     cell.setAttribute("data-end", "true");
     Board = "with_end";
     cell.className = "goal";
+    endpoint = cell;
 
     // Si el usuario activó el modo manual, se permite poner obstáculos
   } else if (isManual == true) {
