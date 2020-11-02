@@ -86,7 +86,7 @@ function startSearch() {
   } else {
   let vehicle_pos = [vehicle.parentNode.rowIndex, vehicle.cellIndex];
   let endpoint_pos = [endpoint.parentNode.rowIndex, endpoint.cellIndex];
-  Search1(vehicle_pos, endpoint_pos);
+  Search1(vehicle_pos, endpoint_pos, grid);
   }
 }
 
