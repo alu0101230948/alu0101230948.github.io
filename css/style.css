@@ -68,6 +68,10 @@ OBS_TEXT {
   background: #333333;
 }
 
+#grid TR TD.solution {
+  background: #0095C6;
+}
+
 #grid TR TD.goal {
   background: coral;
 }

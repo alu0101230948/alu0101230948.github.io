@@ -38,7 +38,6 @@ class Tree {
         node.children.splice(index, 1);
       }
     });
-
   }
 }
 
