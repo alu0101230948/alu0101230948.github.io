@@ -64,7 +64,7 @@ OBS_TEXT {
   font-size: 25px;
 }
 
-#grid TR TD.clicked {
+#grid TR TD.marked {
   background: #333333;
 }
 

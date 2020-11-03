@@ -14,9 +14,11 @@ class Tree {
     goThrough(this._root, dash);
   }
 
-  _addNode(value, parent_node) {
+  _addNode(value, i, j, parent_node) {
     const new_node = {
       value,
+      i,
+      j,
       children: []
     };
 
@@ -26,6 +28,7 @@ class Tree {
     }
 
     parent_node.children.push(new_node);
+    return new_node;
   }
 
   _removeNode(node) {
@@ -39,8 +42,15 @@ class Tree {
 }
 
 class Node {
-  constructor(value, children) {
+  constructor(value, i, j, children) {
     this.value = value;
+    this.i = i;
+    this.j = j;    
     this.children = [];
+  }
+
+  _isLeaf() {
+    if (this.children.length == 0) return true;
+    return false;
   }
 }
