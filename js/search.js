@@ -22,18 +22,18 @@ function Search1(car_pos, goal_pos, grid) {
   grid.rows[cellRow].cells[cellCol].className = "marked";
 
   do {
-    if (boundary.lenght > 1) boundary.sort(function(a, b){return (a.value - b.value)});
+    if (boundary.length > 1) boundary.sort(function (a, b) { return (a.value - b.value) });
     parent = boundary.shift();
     cellRow = parent.i;
     cellCol = parent.j;
 
     console.log("[" + cellRow + " " + cellCol + "]")
-    if ((cellRow == goal_pos[0]) && (cellCol == goal_pos[1])) {alert("¡Meta alcanzada!"); return;}
+    if ((cellRow == goal_pos[0]) && (cellCol == goal_pos[1])) { alert("¡Meta alcanzada!"); return; }
 
     // Norte
     if (cellRow != 0) {
       let north = grid.rows[cellRow - 1].cells[cellCol];
-      if ((north.getAttribute("data-obstacle") == "false") && (north.className != "marked") ) {
+      if ((north.getAttribute("data-obstacle") == "false") && (north.className != "marked")) {
         let fn = (parent.depth + 1) + distance(cellRow - 1, cellCol, goal_pos[0], goal_pos[1]);
         let child = tree._addNode(fn, cellRow - 1, cellCol, parent);
         boundary.push(child);
