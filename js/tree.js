@@ -19,6 +19,7 @@ class Tree {
       value,
       i,
       j,
+      depth: parent_node.depth + 1,
       children: []
     };
 
@@ -42,10 +43,11 @@ class Tree {
 }
 
 class Node {
-  constructor(value, i, j, children) {
+  constructor(value, i, j, depth, children) {
     this.value = value;
     this.i = i;
     this.j = j;    
+    this.depth = depth;
     this.children = [];
   }
 
