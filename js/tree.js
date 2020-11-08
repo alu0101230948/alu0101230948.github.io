@@ -4,7 +4,7 @@ class Tree {
   }
 
   _traverse(callback) {
-    const self = this;
+    // const self = this;
     function goThrough(node) {
       callback(node);
       node.children.forEach((child) => {
@@ -45,7 +45,7 @@ class Node {
   constructor(value, i, j, depth, children) {
     this.value = value;
     this.i = i;
-    this.j = j;    
+    this.j = j;
     this.depth = depth;
     this.children = [];
   }

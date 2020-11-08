@@ -27,6 +27,7 @@ function Search1(car_pos, goal_pos, grid) {
 
   grid.rows[cellRow].cells[cellCol].className = "marked";
 
+  // TODO probar con recursividad
   do {
     if (boundary.length > 1) boundary.sort(function (a, b) { return (a.value - b.value) });
     parent = boundary.shift();
@@ -34,7 +35,11 @@ function Search1(car_pos, goal_pos, grid) {
     cellCol = parent.j;
 
     console.log("[" + cellRow + " " + cellCol + "]")
-    if ((cellRow == goal_pos[0]) && (cellCol == goal_pos[1])) { alert("¡Meta alcanzada!"); return; }
+    if ((cellRow == goal_pos[0]) && (cellCol == goal_pos[1])) { 
+      alert("¡Meta alcanzada!"); 
+      grid.rows[cellRow].cells[cellCol].className = "solution";
+      return; 
+    }
 
     function Coordinates(pos, row, col) {
       if ((pos.getAttribute("data-obstacle") == "false") && (pos.className != "marked")) {
