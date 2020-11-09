@@ -27,14 +27,13 @@ function Search1(car_pos, goal_pos, grid) {
 
   grid.rows[cellRow].cells[cellCol].className = "marked";
 
+  // TODO que las rocas no se pongan despues de mostrar la solucion
   do {
     if (boundary.length > 1) boundary.sort(function (a, b) { return (a.value - b.value) });
     parent = boundary.shift();
     cellRow = parent.i;
     cellCol = parent.j;
 
-    // TODO eliminar el console log
-    console.log("[" + cellRow + " " + cellCol + "]")
     if ((cellRow == goal_pos[0]) && (cellCol == goal_pos[1])) {
       grid.rows[cellRow].cells[cellCol].className = "goal";
       alert("¡Meta alcanzada!");
