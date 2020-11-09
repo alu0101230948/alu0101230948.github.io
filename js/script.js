@@ -58,6 +58,7 @@ function RandomObstacles(M, N) {
 
 // Funcion que aplica una técnica de búsqueda para encontrar la meta
 function startSearch() {
+  isManual = false;
   if (Board == "empty") {
     alert("¡Coloca el coche!");
   } else if (Board == "with_car") {
@@ -110,6 +111,7 @@ function clickCell(cell) {
   }
 }
 
+// Permite cargar un tablero desde fichero 
 function loadFile() {
   grid.innerHTML = "";
 

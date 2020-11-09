@@ -13,7 +13,6 @@ function Search1(car_pos, goal_pos, grid) {
   // h(n) -> costo estimado del camino más corto
   let estimation = Man_dist(car_pos[0], car_pos[1], goal_pos[0], goal_pos[1]);
   let parent = new Node(estimation, car_pos[0], car_pos[1], 0);
-  let tree = new Tree(parent);
   const row_size = grid.rows.length;
   const column_size = grid.rows[0].cells.length;
 
@@ -23,7 +22,6 @@ function Search1(car_pos, goal_pos, grid) {
 
   grid.rows[cellRow].cells[cellCol].className = "marked";
 
-  // TODO que las rocas no se pongan despues de mostrar la solucion
   do {
     if (boundary.length > 1) boundary.sort(function (a, b) { return (a.value - b.value) });
     parent = boundary.shift();
@@ -43,7 +41,7 @@ function Search1(car_pos, goal_pos, grid) {
     function Coordinates(pos, row, col) {
       if ((pos.getAttribute("data-obstacle") == "false") && (pos.className != "marked")) {
         let fn = (parent.depth + 1) + Man_dist(row, col, goal_pos[0], goal_pos[1]);
-        let child = tree._addNode(fn, row, col, parent);
+        let child = parent._addNode(fn, row, col);
         boundary.push(child);
         pos.className = "marked";
         pos.innerHTML = fn;
