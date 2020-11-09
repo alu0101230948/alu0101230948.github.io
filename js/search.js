@@ -19,10 +19,6 @@ function Search1(car_pos, goal_pos, grid) {
 
   let cellRow = car_pos[0];
   let cellCol = car_pos[1];
-  // gn es el coste real que se ha consumido para llegar a la casilla actual 
-  let gn = 1;
-  let min = row_size + column_size;
-  let min_node;
   let boundary = [parent];
 
   grid.rows[cellRow].cells[cellCol].className = "marked";
