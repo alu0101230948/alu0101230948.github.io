@@ -86,6 +86,6 @@ BUTTON {
 input {
   margin: 15px;
   text-align: center;
-  width: 25px;
-  height: 25px;
+  width: auto;
+  height: auto;
 }

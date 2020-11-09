@@ -34,7 +34,6 @@ function Search1(car_pos, goal_pos, grid) {
     cellCol = parent.j;
 
     // TODO eliminar el console log
-    // TODO que la meta no se cambie de color
     console.log("[" + cellRow + " " + cellCol + "]")
     if ((cellRow == goal_pos[0]) && (cellCol == goal_pos[1])) {
       grid.rows[cellRow].cells[cellCol].className = "goal";

@@ -9,20 +9,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script type="text/javascript" src="js/utilities.js"></script>
   <script type="text/javascript" src="js/tree.js"></script>
-
 </head>
 
 <body>
+  <!-- Modo manual o aleatorio -->
   <div>
     <BUTTON onclick="toggleMode()">Modo</BUTTON>
     <MODO_MANUAL id="man">Manual </MODO_MANUAL>
     <MODO_ALEATORIO id="random">Aleatorio</MODO_ALEATORIO>
   </div>
 
+  <!-- Título y pedir información de filas columnas y obstáculos al usuario -->
   <H1>Simulación Vehículo Autónomo con Obstáculos</H1>
-  
-  <H2>Filas: </H2> 
-  <input type="tel" id="ask_rows" value="3" size="5"> 
+  <H2>Filas: </H2>
+  <input type="tel" id="ask_rows" value="3" size="5">
   <H2>Columnas: </H2>
   <input type="tel" id="ask_columns" value="3" size="5">
 
@@ -30,9 +30,9 @@
     <H2>Obstáculos:</H2>
     <input type="tel" id="ask_obstacles" value="4" size="5">
   </OBS_TEXT>
-
   <br></br>
 
+  <!-- Generar tabla, tabla y botones -->
   <BUTTON onclick="generateGrid();">GENERAR</BUTTON>
 
   <table id=grid>
@@ -40,6 +40,11 @@
 
   <BUTTON onclick="startSearch()">BUSCAR</BUTTON>
   <BUTTON onclick="showHelp()">AYUDA</BUTTON>
+
+  <br></br>
+
+  <!-- TODO mantener el formato de filas, columnas y obstaculos -->
+  <input type="file" id="file-selector">
 
 
 </body>
