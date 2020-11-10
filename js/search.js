@@ -23,7 +23,12 @@ function Search1(car_pos, goal_pos, grid) {
   grid.rows[cellRow].cells[cellCol].className = "marked";
 
   do {
-    if (boundary.length > 1) boundary.sort(function (a, b) { return (a.value - b.value) });
+    if (boundary.length > 1) boundary.sort(function (a, b) {
+      if (a.value > b.value) return 1;
+      if (a.value <= b.value) return -1;
+      return 0;
+    });
+
     parent = boundary.shift();
     cellRow = parent.i;
     cellCol = parent.j;
