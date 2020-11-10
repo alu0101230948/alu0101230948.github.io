@@ -10,8 +10,13 @@ function Eucl_dist(x0, y0, x1, y1) {
 }
 
 function Search1(car_pos, goal_pos, grid) {
-  // h(n) -> costo estimado del camino más corto
-  let estimation = Man_dist(car_pos[0], car_pos[1], goal_pos[0], goal_pos[1]);
+  // Selecciono la función heurística (Manhattan o Euclídea)
+  let heur;
+  if (document.getElementById("functions").value == "man") heur = Man_dist;
+  else if (document.getElementById("functions").value == "eucl") heur = Eucl_dist;
+
+  // estimation o h(n) -> costo estimado del camino más corto
+  let estimation = heur(car_pos[0], car_pos[1], goal_pos[0], goal_pos[1]);
   let parent = new Node(estimation, car_pos[0], car_pos[1], 0);
   const row_size = grid.rows.length;
   const column_size = grid.rows[0].cells.length;
@@ -45,7 +50,7 @@ function Search1(car_pos, goal_pos, grid) {
 
     function Coordinates(pos, row, col) {
       if ((pos.getAttribute("data-obstacle") == "false") && (pos.className != "marked")) {
-        let fn = (parent.depth + 1) + Man_dist(row, col, goal_pos[0], goal_pos[1]);
+        let fn = (parent.depth + 1) + heur(row, col, goal_pos[0], goal_pos[1]);
         let child = parent._addNode(fn, row, col);
         boundary.push(child);
         pos.className = "marked";
