@@ -71,6 +71,18 @@ function startSearch() {
   }
 }
 
+// Quita las casillas marcadas y la solución óptima para volver a calcularla
+function clearTable() {
+  const row_size = grid.rows.length;
+  const column_size = grid.rows[0].cells.length;
+  for (let i = 0; i < row_size; i++) {
+    for (let j = 0; j < column_size; j++) {
+      grid.rows[i].cells[j].className = "";
+
+    }
+  }
+}
+
 // Dependiendo del estado de la tabla, efectúa una acción u otra
 function clickCell(cell) {
   // Comprueba si la celda clicada es un obstáculo. 
@@ -184,16 +196,4 @@ function resizeGrid(rows, cols) {
       cell.setAttributeNode(obstacle);
     }
   }
-}
-
-// Quita las casillas marcadas y la solución óptima para volver a calcularla
-function clearTable() {
-  const row_size = grid.rows.length;
-  const column_size = grid.rows[0].cells.length;
-  for (let i = 0; i < row_size; i++) {
-    for (let j = 0; j < column_size; j++) {
-      grid.rows[i].cells[j].className = ""; 
-
-    }
-  }  
 }
