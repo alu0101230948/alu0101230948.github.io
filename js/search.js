@@ -9,11 +9,11 @@ function Eucl_dist(x0, y0, x1, y1) {
   return Math.sqrt(Math.pow(x1 - x0, 2) + Math.pow(y1 - y0, 2));
 }
 
-function Search1(car_pos, goal_pos, grid) {
+function Search(car_pos, goal_pos, grid) {
   // Selecciono la función heurística (Manhattan o Euclídea)
   let heur;
-  if (document.getElementById("functions").value == "man") heur = Man_dist;
-  else if (document.getElementById("functions").value == "eucl") heur = Eucl_dist;
+  if (document.getElementById("functions").value == "s_man") heur = Man_dist;
+  else if (document.getElementById("functions").value == "s_eucl") heur = Eucl_dist;
 
   // estimation o h(n) -> costo estimado del camino más corto
   let estimation = heur(car_pos[0], car_pos[1], goal_pos[0], goal_pos[1]);
