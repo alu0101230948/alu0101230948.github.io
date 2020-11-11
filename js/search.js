@@ -54,7 +54,7 @@ function Search1(car_pos, goal_pos, grid) {
         let child = parent._addNode(fn, row, col);
         boundary.push(child);
         pos.className = "marked";
-        pos.innerHTML = fn;
+        // pos.innerHTML = fn;
       }
     }
 

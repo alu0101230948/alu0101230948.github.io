@@ -58,6 +58,7 @@ function RandomObstacles(M, N) {
 
 // Funcion que aplica una técnica de búsqueda para encontrar la meta
 function startSearch() {
+  clearTable();
   isManual = false;
   if (Board == "empty") {
     alert("¡Coloca el coche!");
@@ -183,4 +184,16 @@ function resizeGrid(rows, cols) {
       cell.setAttributeNode(obstacle);
     }
   }
+}
+
+// Quita las casillas marcadas y la solución óptima para volver a calcularla
+function clearTable() {
+  const row_size = grid.rows.length;
+  const column_size = grid.rows[0].cells.length;
+  for (let i = 0; i < row_size; i++) {
+    for (let j = 0; j < column_size; j++) {
+      grid.rows[i].cells[j].className = ""; 
+
+    }
+  }  
 }
