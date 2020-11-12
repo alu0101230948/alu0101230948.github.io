@@ -1,4 +1,8 @@
-// Funcion que cambia de un modo manual a un modo aleatorio
+/* Autor: Viren Sajju Dhanwani Dhanwani
+
+*/
+
+// Función que cambia de un modo manual a un modo aleatorio
 // y muestra al usuario en qué modo se encuentra
 function toggleMode() {
   let x = document.getElementById("man");

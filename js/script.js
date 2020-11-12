@@ -1,3 +1,7 @@
+/* Autor: Viren Sajju Dhanwani Dhanwani
+
+*/
+
 // Cuadrícula 
 let grid = document.getElementById("grid");
 
@@ -19,7 +23,7 @@ generateGrid();
 // Generar una cuadrícula donde cada celda es clicable 
 function generateGrid() {
   Board = "empty";
-  // Coge los datos de los campos de texto ofrecidos al usuario
+
   let n_rows = document.getElementById("ask_rows").value;
   let n_columns = document.getElementById("ask_columns").value;
 
@@ -60,6 +64,7 @@ function RandomObstacles(M, N) {
 function startSearch() {
   clearTable();
   isManual = false;
+
   if (Board == "empty") {
     alert("¡Coloca el coche!");
   } else if (Board == "with_car") {
@@ -85,14 +90,13 @@ function clearTable() {
   for (let i = 0; i < row_size; i++) {
     for (let j = 0; j < column_size; j++) {
       grid.rows[i].cells[j].className = "";
-
     }
   }
 }
 
 // Dependiendo del estado de la tabla, efectúa una acción u otra
 function clickCell(cell) {
-  // Comprueba si la celda clicada es un obstáculo. 
+  // Comprueba si la celda es un obstáculo. 
   // Si está el modo manual, se permite deseleccionar
   if (cell.getAttribute("data-obstacle") == "true") {
     if (isManual == true) {
@@ -102,11 +106,11 @@ function clickCell(cell) {
       alert("Obstáculo");
     }
 
-    // Comprueba si la celda clicada es un coche
+    // Comprueba si la celda es un coche
   } else if (cell.getAttribute("data-car") == "true") {
     alert("Coche");
 
-    // Comprueba si la celda clicada es la meta
+    // Comprueba si la celda es la meta
   } else if (cell.getAttribute("data-end") == "true") {
     alert("Meta");
 

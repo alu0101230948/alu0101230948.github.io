@@ -1,3 +1,7 @@
+/* Autor: Viren Sajju Dhanwani Dhanwani
+
+*/
+
 // Clase nodo que guarda 5 atributos:
 // value: valor del nodo, que también se puede usar como identificador
 // i: en el caso de las casillas, fila en la que se encuentra la casilla
@@ -13,6 +17,7 @@ class Node {
     this.parent = parent;
   }
 
+  // Añade un nodo como hijo del actual y lo devuelve
   _addNode(value, i, j) {
     return new Node(value, i, j, this.depth + 1, this);
   }
