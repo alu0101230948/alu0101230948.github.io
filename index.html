@@ -11,8 +11,8 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script type="text/javascript" src="js/utilities.js"></script>
-  <script type="text/javascript" src="js/node.js"></script>
+  <script src="js/utilities.js"></script>
+  <script src="js/node.js"></script>
 </head>
 
 <body>
@@ -64,7 +64,42 @@
 
 </body>
 
-<script type="text/javascript" src="js/script.js"></script>
-<script type="text/javascript" src="js/search.js"></script>
+<script>
+  document.onkeyup = function (e) {
+    switch (e.which) {
+      // 'E'
+      case 69:
+        document.getElementById("functions").value = "s_eucl";
+        break;
+      // 'G'
+      case 71:
+        generateGrid();
+        break;
+      // 'H'
+      case 72:
+        showHelp();
+        break;
+      // 'L'
+      case 76:
+        loadFile();
+        break;
+      // 'M'
+      case 77:
+        document.getElementById("functions").value = "s_man";
+        break;
+      // 'S'
+      case 83:
+        startSearch();
+        break;
+      // 'W' 
+      case 87:
+        toggleMode();
+        break;
+    }
+  }
+</script>
+
+<script src="js/script.js"></script>
+<script src="js/search.js"></script>
 
 </html>
