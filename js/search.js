@@ -51,14 +51,27 @@ function Search(car_pos, goal_pos, grid) {
       return;
     }
 
+    let is_lower = false;
+
     function MarkCell(pos, row, col) {
-      if ((pos.getAttribute("data-obstacle") == "false") && (pos.className != "marked")) {
+      if ((pos.getAttribute("data-obstacle") == "false")) {
         let fn = (actual_node.depth + 1) + heur(row, col, goal_pos[0], goal_pos[1]);
-        let child = actual_node._addNode(fn, row, col);
-        boundary.push(child);
-        pos.className = "marked";
-        // Descomentar la siguiente línea si se quiere mostrar el valor de la función dentro de cada casilla
-        // pos.innerHTML = fn;
+        for (let it = 0; it < boundary.length; it++) {
+          if ((boundary[it].i == row) && (boundary[it].j == col)) {
+            if (fn < boundary[it].value) {
+              is_lower = true;
+              break;
+            }
+          }
+        }
+
+        if ((is_lower) || (pos.className != "marked")) {
+          let child = actual_node._addNode(fn, row, col);
+          boundary.push(child);
+          pos.className = "marked";
+          // Descomentar la siguiente línea si se quiere mostrar el valor de la función dentro de cada casilla
+          // pos.innerHTML = fn;
+        }
       }
     }
 
