@@ -5,7 +5,7 @@
 // FUNCIONES DE BÚSQUEDA
 // Funcion heurística que usa la distancia Manhattan
 function Man_dist(x0, y0, x1, y1) {
-  return Math.abs(Number(x1) - Number(x0)) + Math.abs(Number(y1) - Number(y0));
+  return Math.abs(x1 - x0) + Math.abs(y1 - y0);
 }
 
 // Funcion heurística que usa la distancia euclídea
@@ -14,7 +14,6 @@ function Eucl_dist(x0, y0, x1, y1) {
 }
 
 function Search(car_pos, goal_pos, grid) {
-
   let heur;
   if (document.getElementById("functions").value == "s_man") heur = Man_dist;
   else if (document.getElementById("functions").value == "s_eucl") heur = Eucl_dist;
