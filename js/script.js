@@ -73,13 +73,10 @@ function startSearch() {
     let vehicle_pos = [vehicle.parentNode.rowIndex, vehicle.cellIndex];
     let endpoint_pos = [endpoint.parentNode.rowIndex, endpoint.cellIndex];
 
-    let start = new Date().getTime();
-
     Search(vehicle_pos, endpoint_pos, grid);
 
-    let end = new Date().getTime();
-    let time = end - start;
-    console.log("Execution time: " + time + " ms");
+    const row_size = grid.rows.length;
+    const column_size = grid.rows[0].cells.length;
   }
 }
 

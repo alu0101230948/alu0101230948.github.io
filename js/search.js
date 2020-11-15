@@ -14,9 +14,12 @@ function Eucl_dist(x0, y0, x1, y1) {
 }
 
 function Search(car_pos, goal_pos, grid) {
+
   let heur;
   if (document.getElementById("functions").value == "s_man") heur = Man_dist;
   else if (document.getElementById("functions").value == "s_eucl") heur = Eucl_dist;
+
+  console.time("Execution time");
 
   // estimation o h(n) -> costo estimado del camino más corto
   let estimation = heur(car_pos[0], car_pos[1], goal_pos[0], goal_pos[1]);
@@ -29,7 +32,8 @@ function Search(car_pos, goal_pos, grid) {
   let boundary = [actual_node];
 
   grid.rows[cellRow].cells[cellCol].className = "marked";
-
+  
+  let travelled_nodes = 0;
   do {
     if (boundary.length > 1) boundary.sort(function (a, b) {
       if (a.value > b.value) return 1;
@@ -42,33 +46,42 @@ function Search(car_pos, goal_pos, grid) {
     cellCol = actual_node.j;
 
     if ((cellRow == goal_pos[0]) && (cellCol == goal_pos[1])) {
+      console.timeEnd("Execution time");
       grid.rows[cellRow].cells[cellCol].className = "goal";
       alert("¡Meta alcanzada!");
+
+      let optimal_cells = 0;
       while (actual_node.parent) {
         actual_node = actual_node.parent;
         grid.rows[actual_node.i].cells[actual_node.j].className = "solution";
+        ++optimal_cells;
       }
+      console.log("Camino óptimo: " + optimal_cells);
+      console.log("Nodos recorridos: " + travelled_nodes);
       return;
     }
 
-    let is_lower = false;
-
     function MarkCell(pos, row, col) {
-      if ((pos.getAttribute("data-obstacle") == "false")) {
+      if (pos.getAttribute("data-obstacle") == "false") {
         let fn = (actual_node.depth + 1) + heur(row, col, goal_pos[0], goal_pos[1]);
+
         for (let it = 0; it < boundary.length; it++) {
           if ((boundary[it].i == row) && (boundary[it].j == col)) {
+            // Se actualiza el nodo con los nuevos datos
             if (fn < boundary[it].value) {
-              is_lower = true;
+              boundary[it].value = fn;
+              boundary[it].parent = actual_node;
+              boundary[it].depth = actual_node.depth + 1;
               break;
             }
           }
         }
 
-        if ((is_lower) || (pos.className != "marked")) {
+        if (pos.className != "marked") {
           let child = actual_node._addNode(fn, row, col);
           boundary.push(child);
           pos.className = "marked";
+          ++travelled_nodes;
           // Descomentar la siguiente línea si se quiere mostrar el valor de la función dentro de cada casilla
           // pos.innerHTML = fn;
         }
@@ -103,5 +116,7 @@ function Search(car_pos, goal_pos, grid) {
       MarkCell(east, cellRow, col_e);
     }
   } while (boundary.length > 0);
+  console.timeEnd("Execution time");
+  grid.rows[goal_pos[0]].cells[goal_pos[1]].className = "goal";
   alert("Solución no encontrada!");
 }
