@@ -14,6 +14,7 @@ function Eucl_dist(x0, y0, x1, y1) {
 }
 
 function Search(car_pos, goal_pos, grid) {
+  // INICIALIZACIONES
   let heur;
   if (document.getElementById("functions").value == "s_man") heur = Man_dist;
   else if (document.getElementById("functions").value == "s_eucl") heur = Eucl_dist;
